@@ -26,5 +26,10 @@ namespace Calculator
         {
             this.InitializeComponent();
         }
-    }
+
+		private void tripCalculatorBTN_Click(object sender, RoutedEventArgs e)
+		{
+			Frame.Navigate(typeof(TripCalculatorPage));
+		}
+	}
 }
