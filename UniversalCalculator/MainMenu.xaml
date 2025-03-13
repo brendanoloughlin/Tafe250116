@@ -30,7 +30,7 @@
 		
 	</Page.Resources>
 
-	<Grid x:Name="GridLayout" Background="#fdf0d5">
+	<Grid x:Name="Layout Root" Background="#fdf0d5">
 		<Grid.RowDefinitions>
 			<RowDefinition />
 			<RowDefinition />
