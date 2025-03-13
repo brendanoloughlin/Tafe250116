@@ -110,5 +110,6 @@ namespace Calculator.Utils
 			if (primaryDisplay.Text.Length > 0)
 				primaryDisplay.Text = primaryDisplay.Text.Substring(0, primaryDisplay.Text.Length - 1);
 		}
+
 	}
 }
