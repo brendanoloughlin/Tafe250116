@@ -9,35 +9,22 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 	<Page.Resources>
-		<Style TargetType="TextBlock">
-			<Setter Property="VerticalAlignment" Value="Center" />
-			<Setter Property="HorizontalAlignment" Value="Center" />
-			<Setter Property="FontSize" Value="72px" />
-			<Setter Property="FontWeight" Value="Bold" />
-			<Setter Property="Foreground" Value="#003049" />
-			<Setter Property="FontFamily" Value="Cambria" />
-		</Style>
-		<Style x:Key="ButtonStyle" TargetType="Button">
-			<Setter Property="VerticalAlignment" Value="Center" />
-			<Setter Property="HorizontalAlignment" Value="Center" />
-			<Setter Property="Background" Value="#669bbc" />
-			<Setter Property="BorderThickness" Value="3" />
-			<Setter Property="BorderBrush" Value="#003049" />
-			<Setter Property="Height" Value="140px" />
-			<Setter Property="Width" Value="360px" />
-			<Setter Property="FontSize" Value="30px" />
-		</Style>
-		
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/Resources/MainMenuResources.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
 	</Page.Resources>
-
+	
 	<Grid x:Name="GridLayout" Background="#fdf0d5">
 		<Grid.RowDefinitions>
-			<RowDefinition />
-			<RowDefinition />
-			<RowDefinition />
-			<RowDefinition />
-			<RowDefinition />
-			<RowDefinition />
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="35"/>
 		</Grid.RowDefinitions>
 
 		<Rectangle VerticalAlignment="Center"
@@ -50,13 +37,13 @@
 				<ImageBrush ImageSource="/Assets/abacus.PNG" />
 			</Rectangle.Fill>
 		</Rectangle>
-		
-		<TextBlock Grid.Row="0" Text="Universal Calculator"/>
 
-		<Button x:Name="mathsBTN" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Maths Calculator" Style="{StaticResource ButtonStyle}"  />
-		<Button x:Name="mortgageBTN" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Mortgage Calculator"  Style="{StaticResource ButtonStyle}" />
-		<Button x:Name="currencyBTN" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Currency Converter"  Style="{StaticResource ButtonStyle}" />
-		<Button x:Name="exitBTN" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Exit" Style="{StaticResource ButtonStyle}" />
+		<TextBlock Grid.Row="0" Text="Universal Calculator"/>
+		<Button x:Name="mathsBTN" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Maths Calculator" Style="{StaticResource ButtonStyle}" Click="mathsBTN_Click" />
+		<Button x:Name="mortgageBTN" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Mortgage Calculator"  Style="{StaticResource ButtonStyle}" Click="mortgageBTN_Click"/>
+		<Button x:Name="currencyBTN" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Currency Converter"  Style="{StaticResource ButtonStyle}" Click="currencyBTN_Click"/>
+		<Button x:Name="tripBTN" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Trip Calculator"  Style="{StaticResource ButtonStyle}" Click="tripBTN_Click"/>
+		<Button x:Name="exitBTN" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Exit" Style="{StaticResource ButtonStyle}" Click="exitBTN_Click"/>
 
 	</Grid>
 </Page>
