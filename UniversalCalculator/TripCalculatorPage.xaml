@@ -1,0 +1,147 @@
+﻿<Page
+    x:Class="Calculator.TripCalculatorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Calculator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+	MinWidth="1000">
+	<!--
+	DEVELOPER: Stuart Holcroft
+	CREATED DATE: 2025-03-11
+	LAST UPDATED: 2025-03-12
+	ASSIGNMENT: Git2
+	-->
+	<Grid Background="#FDF0D5">
+
+		<!-- Create the vertical layout for the page -->
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition x:Name="panelOne" Width="*" MaxWidth="100"/>
+			<ColumnDefinition x:Name="mainPanel" Width="*" />
+			<ColumnDefinition x:Name="panelTwo" Width="*"  MaxWidth="100"/>
+		</Grid.ColumnDefinitions>
+
+		<!-- Create the horizonal rows to layout the page -->
+		<Grid.RowDefinitions>
+			<RowDefinition x:Name="heading" Height="100" />
+			<RowDefinition x:Name="content" Height="*" />
+			<RowDefinition x:Name="footer" Height="100" />
+		</Grid.RowDefinitions>
+
+		<!-- Create Page Heading -->
+		<TextBlock x:Name="pageHeading"
+				   Grid.Row="0"
+				   Grid.Column="1"
+				   HorizontalAlignment="Center"
+				   VerticalAlignment="Center"
+				   FontSize="60"
+				   Foreground="Black">Trip Calculator</TextBlock>
+
+		<!-- Create the main horizontal stack panel to hold the fields -->
+		<StackPanel x:Name="contentStack" Orientation="Vertical" HorizontalAlignment="Center" Margin="10" Grid.Row="1" Grid.Column="1">
+
+			<StackPanel.Resources>
+				<!-- Create the default text formatting for all the TextBlock field names -->
+				<Style x:Key="defaultTextFormatting" TargetType="TextBlock">
+					<Setter Property="FontSize" Value="25" />
+					<Setter Property="Foreground" Value="Black" />
+					<Setter Property="Padding" Value="10" />
+					<Setter Property="TextAlignment" Value="End" />
+					<Setter Property="Width" Value="270"/>
+				</Style>
+				<!-- Create the default text formatting for all the TextBox fields -->
+				<Style x:Key="defaultTextBoxFormatting" TargetType="TextBox">
+					<Setter Property="FontSize" Value="20" />
+					<Setter Property="Height" Value="40" />
+					<Setter Property="MinWidth" Value="450" />
+					<Setter Property="Background" Value="#669bbc" />
+				</Style>
+				<!-- Create the default button formatting for all page buttons -->
+				<Style x:Key="defaultButtonFormatting" TargetType="Button">
+					<Setter Property="VerticalAlignment" Value="Center" />
+					<Setter Property="HorizontalAlignment" Value="Center" />
+					<Setter Property="Background" Value="#669bbc" />
+					<Setter Property="BorderThickness" Value="3" />
+					<Setter Property="BorderBrush" Value="#003049" />
+					<Setter Property="FontSize" Value="16px" />
+					<Setter Property="MinWidth" Value="100" />
+					<Setter Property="Margin" Value="10 0 10 0" />
+				</Style>
+				<!-- Create the default border style -->
+				<Style x:Key="defaultBorderFormatting" TargetType="Border">
+					<Setter Property="BorderThickness" Value="3" />
+					<Setter Property="Background" Value="LightGray" />
+					<Setter Property="BorderBrush" Value="#003049" />
+					<Setter Property="Margin" Value="-1" />
+				</Style>
+			</StackPanel.Resources>
+
+			<!-- Create and display the date field selector -->
+			<Border Style="{StaticResource defaultBorderFormatting}">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock x:Name="dateTitle" Style="{StaticResource defaultTextFormatting}">Date:</TextBlock>
+					<CalendarDatePicker x:Name="dateField" Width="340" Height="40" FontSize="20" PlaceholderText="Select the Trip Date" Background="#669bbc"/>
+					<Button x:Name="dateToday" Click="DateTodayClickEvent" Style="{StaticResource defaultButtonFormatting}">Today</Button>
+				</StackPanel>
+			</Border>
+
+			<!-- Create and display the starting kilometres field -->
+			<Border Style="{StaticResource defaultBorderFormatting}">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock x:Name="startingKmsTitle" Style="{StaticResource defaultTextFormatting}">Starting Kilometres:</TextBlock>
+					<TextBox x:Name="startingKmsField" LosingFocus="ValidateInt" PlaceholderText="Enter the starting kilometres..." Style="{StaticResource defaultTextBoxFormatting}"/>
+				</StackPanel>
+			</Border>
+
+			<!-- Create and display the ending kilometres field -->
+			<Border Style="{StaticResource defaultBorderFormatting}">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock x:Name="endingKmsTitle" Style="{StaticResource defaultTextFormatting}">Ending Kilometres:</TextBlock>
+					<TextBox x:Name="endingKmsField" PlaceholderText="Enter the ending kilometres..." Style="{StaticResource defaultTextBoxFormatting}"/>
+				</StackPanel>
+			</Border>
+
+			<!-- Create and display the days hired field -->
+			<Border Style="{StaticResource defaultBorderFormatting}">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock x:Name="hiredDaysTitle" Style="{StaticResource defaultTextFormatting}">Days Hired:</TextBlock>
+					<TextBox x:Name="hiredDaysField" LosingFocus="ValidateInt" PlaceholderText="Enter the # days hired..." Style="{StaticResource defaultTextBoxFormatting}"/>
+				</StackPanel>
+			</Border>
+
+			<!-- Create and display the price per day field -->
+			<Border Style="{StaticResource defaultBorderFormatting}">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock x:Name="pricePerDayTitle" Style="{StaticResource defaultTextFormatting}">Price p/Day ($AUD):</TextBlock>
+					<TextBox x:Name="pricePerDayField" LosingFocus="ValidateDouble" PlaceholderText="Enter the price per day..." Style="{StaticResource defaultTextBoxFormatting}"/>
+				</StackPanel>
+			</Border>
+
+			<!-- Display the result of the calculation -->
+			<Border Style="{StaticResource defaultBorderFormatting}">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock x:Name="amountPayTitle" Style="{StaticResource defaultTextFormatting}">Amount to Pay ($AUD):</TextBlock>
+					<TextBox x:Name="amountPayField" IsEnabled="False"  Style="{StaticResource defaultTextBoxFormatting}"/>
+				</StackPanel>
+			</Border>
+
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Padding="10" Margin="10">
+				<Button x:Name="calculateButton" Click="CalculateButtonClick" Style="{StaticResource defaultButtonFormatting}">Calculate</Button>
+				<Button x:Name="resetButton" Click="ResetButtonClick" Style="{StaticResource defaultButtonFormatting}">Reset</Button>
+				<Button x:Name="exitButton" Click="ExitButtonClick" Style="{StaticResource defaultButtonFormatting}">Exit</Button>
+			</StackPanel>
+		</StackPanel>
+
+		<TextBlock x:Name="developerName"
+					Grid.Row="2"
+					Grid.Column="1"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					FontSize="10"
+					Foreground="Gray">
+			© Stuart Holcroft (001194191) 2025
+		</TextBlock>
+	</Grid>
+</Page>
