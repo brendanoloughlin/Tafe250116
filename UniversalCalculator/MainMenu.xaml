@@ -30,7 +30,11 @@
 		
 	</Page.Resources>
 
-	<Grid x:Name="Layout Root" Background="#fdf0d5">
+<<<<<<< HEAD
+	<Grid x:Name="GridLayout" Background="#fdf0d5">
+=======
+	<Grid x:Name="LayoutRoot" Background="#fdf0d5">
+>>>>>>> 5bad298f5a8a4a52eb0dc5e67f11ddac06f4967b
 		<Grid.RowDefinitions>
 			<RowDefinition />
 			<RowDefinition />
@@ -56,7 +60,8 @@
 		<Button x:Name="mathsBTN" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Maths Calculator" Style="{StaticResource ButtonStyle}"  />
 		<Button x:Name="mortgageBTN" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Mortgage Calculator"  Style="{StaticResource ButtonStyle}" />
 		<Button x:Name="currencyBTN" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Currency Converter"  Style="{StaticResource ButtonStyle}" />
-		<Button x:Name="exitBTN" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Exit" Style="{StaticResource ButtonStyle}" />
+		<Button x:Name="tripCalculatorBTN" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Trip Calculator" Style="{StaticResource ButtonStyle}" Click="tripCalculatorBTN_Click" />
+		<Button x:Name="exitBTN" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Exit" Style="{StaticResource ButtonStyle}" />
 
 	</Grid>
 </Page>
