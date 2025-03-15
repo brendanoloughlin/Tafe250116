@@ -34,12 +34,13 @@ namespace Calculator
 
 		private void tripBTN_Click(object sender, RoutedEventArgs e)
 		{
-			this.Frame.Navigate(typeof(Calculator.TripCalculator));
+			this.Frame.Navigate(typeof(Calculator.TripCalculatorPage));
 		}
 
 		private void currencyBTN_Click(object sender, RoutedEventArgs e)
 		{
-			this.Frame.Navigate(typeof(Calculator.Calculator_Page));
+			return;
+			//this.Frame.Navigate(typeof(Calculator.Calculator_Page));
 		}
 
 		private void mortgageBTN_Click(object sender, RoutedEventArgs e)
