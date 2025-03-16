@@ -39,8 +39,8 @@ namespace Calculator
 
 		private void currencyBTN_Click(object sender, RoutedEventArgs e)
 		{
-			return;
-			//this.Frame.Navigate(typeof(Calculator.Calculator_Page));
+		
+			this.Frame.Navigate(typeof(CurrencyCalculator));
 		}
 
 		private void mortgageBTN_Click(object sender, RoutedEventArgs e)
