@@ -45,5 +45,7 @@
 		<Button x:Name="tripBTN" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Trip Calculator"  Style="{StaticResource ButtonStyle}" Click="tripBTN_Click"/>
 		<Button x:Name="exitBTN" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Exit" Style="{StaticResource ButtonStyle}" Click="exitBTN_Click"/>
 
+		
+
 	</Grid>
 </Page>
